@@ -1,0 +1,14 @@
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <!-- have a button POST a click via AJAX -->
+  <button hx-get="/clicked" hx-swap="outerHTML">
+    Click Me
+  </button>
+  <form hx-post="/add-quote" hx-swap-oop="beforeend:#data-list" hx-trigger="every time">
+    <input type="text" name="quote" placeholder="Enter quote">
+    <input type="text" name="author" placeholder="Enter author">
+    <button type="submit">Add Quote</button>
+</form>
+  <ul id="data-list"></ul>
+  <button hx-get="/quotes" hx-target="#data-list">Load Data</button>
+
+
